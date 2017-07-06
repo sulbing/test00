@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "animation.h"
 
-//¸â¹ö ÀÌ´Ï¼È¶óÀÌÁî : ¿ø·¡´Â ÄÜ½ºÆ® ¼Ó¼ºÀ» ÃÊ±âÈ­ ÇÏ±âÀ§ÇØ »ç¿ëµÇ´ø°Çµ¥ °³ÆíÇÔ ²Ü~
+//ë©¤ë²„ ì´ë‹ˆì…œë¼ì´ì¦ˆ : ì›ë˜ëŠ” ì½˜ìŠ¤íŠ¸ ì†ì„±ì„ ì´ˆê¸°í™” í•˜ê¸°ìœ„í•´ ì‚¬ìš©ë˜ë˜ê±´ë° ê°œí¸í•¨ ê¿€~
 animation::animation()
 	: _frameNum(0),
 	_frameWidth(0),
@@ -42,7 +42,7 @@ HRESULT animation::init(int totalW, int totalH, int frameW, int frameH)
 		}
 	}
 
-	//±âº»Àº µğÆúÆ®
+	//ê¸°ë³¸ì€ ë””í´íŠ¸
 	setDefPlayFrame();
 
 	return S_OK;
@@ -108,7 +108,7 @@ void animation::setDefPlayFrame(BOOL reverse, BOOL loop)
 	}
 }
 
-//¹è¿­·Î Àç»ıÇÏ´Â ¾Ö´Ï¸ŞÀÌ¼ğ
+//ë°°ì—´ë¡œ ì¬ìƒí•˜ëŠ” ì• ë‹ˆë©”ì´ìˆ€
 void animation::setPlayFrame(int* playArr, int arrLen, BOOL loop)
 {
 	_loop = loop;
@@ -121,7 +121,7 @@ void animation::setPlayFrame(int* playArr, int arrLen, BOOL loop)
 	}
 }
 
-//±¸°£¹İº¹ ¾Ö´Ï¸ŞÀÌ¼ğ
+//êµ¬ê°„ë°˜ë³µ ì• ë‹ˆë©”ì´ìˆ€
 void animation::setPlayFrame(int start, int end, BOOL reverse, BOOL loop)
 {
 	_loop = loop;
@@ -250,7 +250,7 @@ void animation::frameUpdate(float elapsedTime)
 			_elapsedSec -= _frameUpdateSec;
 			_nowPlayIndex++;
 
-			//³¡±îÁö Àç»ıÇßÀ¸¸é~
+			//ëê¹Œì§€ ì¬ìƒí–ˆìœ¼ë©´~
 			if (_nowPlayIndex == _playList.size())
 			{
 				if (_loop) _nowPlayIndex = 0;
@@ -287,3 +287,6 @@ void animation::resume(void)
 {
 	_play = TRUE;
 }
+
+
+//noway don't do that
