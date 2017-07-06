@@ -6,7 +6,7 @@
 effectManager::effectManager()
 {
 }
-
+//다시테스트
 
 
 effectManager::~effectManager()
