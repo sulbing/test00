@@ -37,9 +37,12 @@ protected:
 	float speedX, speedY;	//속도
 	stateEnum state;		//상태
 	bool isRight;			//방향판별불값 왼쪽 : false , 오른쪽 : true
+	int maxHP;
+	int currentHP;
+	bool _isPlayer1;			//플레이어 1인지 아닌지 판별하는 함수
 
 public:
-	virtual HRESULT init(int x, int y, int width, int height);
+	virtual HRESULT init(bool isPlayer1, int x, int y, int width, int height);
 	virtual void release();
 	virtual void update();
 	virtual void render();

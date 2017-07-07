@@ -13,7 +13,7 @@ playerNode::~playerNode()
 
 
 //플레이어 최초 초기화 함수
-HRESULT playerNode::init(int playerX, int playerY, int playerWidth, int playerHeight)
+HRESULT playerNode::init(bool isPlayer1, int playerX, int playerY, int playerWidth, int playerHeight)
 {
 	
 	x = playerX;
@@ -26,7 +26,11 @@ HRESULT playerNode::init(int playerX, int playerY, int playerWidth, int playerHe
 	speedX = 0;
 	speedY = 0;
 	state = idle;
-	bool isRight = true;
+	maxHP = 100;
+	currentHP = 100;
+	//1피 지정
+	_isPlayer1 = isPlayer1;
+	isRight = isPlayer1;
 
 	return S_OK;
 };
