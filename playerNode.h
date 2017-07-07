@@ -2,6 +2,7 @@
 #include "gameNode.h"
 #include "animation.h"
 
+
 //케릭터 스테이트에 관련된 이넘문 (생각해보니 워크랑 백워크도 왼쪽 오른쪽 잇어야되요)
 enum stateEnum
 {
@@ -25,7 +26,7 @@ enum stateEnum
 };
 
 //게임노드를 상속받은 플레이어의 마더 클래스 여러분은 이것을 상속받으시면 됩니다
-class playerNode : public playerNode
+class playerNode : public gameNode
 {
 protected:
 	
@@ -39,14 +40,20 @@ protected:
 	bool isRight;			//방향판별불값 왼쪽 : false , 오른쪽 : true
 	int maxHP;
 	int currentHP;
-	bool _isPlayer1;			//플레이어 1인지 아닌지 판별하는 함수
+	bool _isPlayer1;		//플레이어1(true) 인지 플레이어2(false) 인지 판별하는 함수
+	float gravity;			//중력값
+	int _upKey, _downKey, _rightKey, _leftKey, _punchKey, _kickKey;    //키입력 관련 변수
 
 public:
-	virtual HRESULT init(bool isPlayer1, int x, int y, int width, int height);
+	virtual HRESULT init(bool isPlayer1, float playerX, float playerY, float playerWidth, float playerHeight, int upKey, int downKey, int leftKey, int rightKey, int punchKey, int kickKey);
 	virtual void release();
 	virtual void update();
 	virtual void render();
 
+
+	//기본 이동 함수, 속도에 따른 좌표값이 변한다
+	virtual void basicMove();
+	
 
 
 	playerNode();
